@@ -15,7 +15,7 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME: str = "GDXray+"
 PROJECT_NAME_FULL: str = "GDXray+: The GRIMA X-ray Database"
-HIDE_DATASET = True  # set False when 100% sure about repo quality
+HIDE_DATASET = False  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
@@ -26,7 +26,7 @@ LICENSE: License = License.Custom(
 APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Security()]
 CATEGORY: Category = Category.Security()
 
-CV_TASKS: List[CVTask] = [CVTask.ObjectDetection()]
+CV_TASKS: List[CVTask] = [CVTask.ObjectDetection(), CVTask.Classification()]
 ANNOTATION_TYPES: List[AnnotationType] = [CVTask.ObjectDetection()]
 
 RELEASE_DATE: Optional[str] = None  # e.g. "YYYY-MM-DD"
@@ -100,7 +100,8 @@ ORGANIZATION_URL: Optional[Union[str, List[str]]] = [
 
 # Set '__PRETEXT__' or '__POSTTEXT__' as a key with string value to add custom text. e.g. SLYTAGSPLIT = {'__POSTTEXT__':'some text}
 SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = {
-    "groups": ["baggages", "castings", "nature", "settings", "welds"]
+    "groups": ["baggages", "castings", "nature", "settings", "welds"],
+    "__POSTTEXT__": "Additionally, every image has its own ***series*** tag",
 }
 TAGS: Optional[List[str]] = ["synthetic"]
 
